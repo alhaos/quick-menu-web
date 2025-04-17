@@ -1,0 +1,46 @@
+name: Deploy quick-menu-web
+run-name: ${{ github.action}}
+on: [push]
+
+jobs:
+  myTestJob:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ls ${{ github.workspace }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npm run build
+
+      - name: Set deploy permissions
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            sudo rm -rf /var/www/quick-menu-web/*
+            sudo chown -R deploy:deploy /var/www/quick-menu-web
+            sudo chmod -R 755 /var/www/quick-menu-web
+
+      - uses: moonpathbg/scp_uploader@latest
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: './dist/*'
+          target: '/var/www/quick-menu-web'
+
+      - name: Set nginx permissions
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            sudo chown -R nginx:nginx /var/www/quick-menu-web
+            sudo chmod -R 755 /var/www/quick-menu-web
+            sudo chcon -R -t httpd_sys_content_t /var/www/quick-menu-web
+            sudo systemctl restart nginx
