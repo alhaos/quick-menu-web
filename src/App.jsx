@@ -1,11 +1,12 @@
+import React from 'react';
+import Header from "./components/header/header.jsx"
 import './App.css';
-import CommonButton from './components/buttons/commonButton/commonButton';
 
 function App() {
   return (
     <>
-      <CommonButton text="button1" />
-      <CommonButton text="button2" />
+      <p>Hello world</p>
+      <Header />
     </>
   );
 }
