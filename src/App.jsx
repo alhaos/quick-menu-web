@@ -1,12 +1,11 @@
 import React from 'react';
-import Header from "./components/header/header.jsx"
+import PostList from './components/PostsList';
 import './App.css';
 
 function App() {
   return (
     <>
-      <p>Hello world</p>
-      <Header />
+      <PostList />
     </>
   );
 }
