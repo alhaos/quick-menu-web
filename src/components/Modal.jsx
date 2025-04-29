@@ -1,11 +1,14 @@
-import React from 'react';
 import classes from './Model.module.css';
 
-function Modal(children) {
-  <>
-    <div className={classes.backdrop} />
-    <dialog className={classes.modal}>{children}</dialog>
-  </>;
+function Modal({ children, onClose }) {
+  return (
+    <>
+      <div className={classes.backdrop} onClick={onClose} />
+      <dialog open className={classes.modal}>
+        {children}
+      </dialog>
+    </>
+  );
 }
 
 export default Modal;

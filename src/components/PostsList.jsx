@@ -1,10 +1,11 @@
-import { useCase, useState } from 'react';
+import { useState } from 'react';
 import Modal from './Modal';
 import NewPost from './NewPost';
 import Post from './post';
 import classes from './PostList.module.css';
 
 function PostList() {
+  const [modalIsVisible, setModalIsVisible] = useState(true);
   const [enteredBody, setEnteredBody] = useState('');
   const [enteredAuthor, setEnteredAuthor] = useState('');
 
@@ -18,15 +19,22 @@ function PostList() {
 
   function cancelHandler() {}
 
+  function hideModalHandler() {
+    setModalIsVisible(false);
+  }
+
   return (
     <>
-      <Modal>
-        <NewPost
-          onBodyChange={bodyChangeHandler}
-          onAuthorChange={authorChangeHandler}
-          onCancel={cancelHandler}
-        />
-      </Modal>
+      {modalIsVisible ? (
+        <Modal onClose={hideModalHandler}>
+          <NewPost
+            onBodyChange={bodyChangeHandler}
+            onAuthorChange={authorChangeHandler}
+            onCancel={cancelHandler}
+          />
+        </Modal>
+      ) : null}
+
       <ul className={classes.posts}>
         <Post author={enteredAuthor} body={enteredBody} />
         <Post author={'alhaos'} body={'some text'} />
