@@ -1,6 +1,6 @@
 import React from 'react';
 import PostList from './components/PostsList';
-import MainHeader from './components/MainHandler';
+import MainHeader from './components/MainHeader';
 import './App.css';
 
 function App() {
