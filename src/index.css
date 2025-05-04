@@ -1,5 +1,8 @@
 body {
   background-color: #07103c;
-  background: linear-gradient(135deg, #07103c 0%, #0a1a5a 100%);
-  color: #ffffff;
+  background: #292a2e;
+}
+
+.nil {
+  background: linear-gradient(0.25turn, #07103c, #0c2734);
 }

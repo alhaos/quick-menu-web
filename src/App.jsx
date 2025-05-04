@@ -1,12 +1,18 @@
 import React from 'react';
 import Header from './components/header/header';
+import Item from './components/item/item';
+import Main from './components/main/main';
 import './App.css';
 
 function App() {
   return (
     <>
-      <p>some text</p>
       <Header />
+      <Main>
+        <Item caption={'Hello world'} price={'10h'} />
+        <Item caption={'Hello world'} price={'10h'} />
+        <Item caption={'Hello world'} price={'10h'} />
+      </Main>
     </>
   );
 }

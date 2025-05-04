@@ -4,8 +4,8 @@ import styles from './header.module.css';
 function Header() {
   return (
     <>
-      <div className={styles.Header}>
-        <h1>Header example</h1>
+      <div className={styles.header}>
+        <h1>QR menu</h1>
       </div>
     </>
   );
