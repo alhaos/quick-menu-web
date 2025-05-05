@@ -12,6 +12,9 @@ function App() {
         <Item caption={'Hello world'} price={'10h'} />
         <Item caption={'Hello world'} price={'10h'} />
         <Item caption={'Hello world'} price={'10h'} />
+        <Item caption={'Hello world'} price={'10h'} />
+        <Item caption={'Hello world'} price={'10h'} />
+        <Item caption={'Hello world'} price={'10h'} />
       </Main>
     </>
   );
