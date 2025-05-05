@@ -9,12 +9,10 @@ function App() {
     <>
       <Header />
       <Main>
-        <Item caption={'Hello world'} price={'10h'} />
-        <Item caption={'Hello world'} price={'10h'} />
-        <Item caption={'Hello world'} price={'10h'} />
-        <Item caption={'Hello world'} price={'10h'} />
-        <Item caption={'Hello world'} price={'10h'} />
-        <Item caption={'Hello world'} price={'10h'} />
+        <Item caption={'Шаурма оригинальная'} price={'110р.'} />
+        <Item caption={'Шаурма остарая'} price={'10h'} />
+        <Item caption={'Шаурма веганская'} price={'10h'} />
+        <Item caption={'Бургер'} price={'10h'} />
       </Main>
     </>
   );
