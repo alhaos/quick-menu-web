@@ -1,11 +1,13 @@
 import React from 'react';
 import styles from './header.module.css';
 
-function Header() {
+function Header(props) {
+  const id = props.id;
+
   return (
     <>
       <div className={styles.header}>
-        <h1>QR menu</h1>
+        <h1>Быстрое меню, клиент: {id}</h1>
       </div>
     </>
   );

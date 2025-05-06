@@ -1,19 +1,20 @@
 import React from 'react';
-import Header from './components/header/header';
-import Item from './components/item/item';
-import Main from './components/main/main';
 import './App.css';
+import Home from './pages/Home';
+import Example from './pages/Example';
+import NotFound from './pages/NotFound';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <>
-      <Header />
-      <Main>
-        <Item caption={'Шаурма оригинальная'} price={'110р.'} />
-        <Item caption={'Шаурма остарая'} price={'10h'} />
-        <Item caption={'Шаурма веганская'} price={'10h'} />
-        <Item caption={'Бургер'} price={'10h'} />
-      </Main>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/example" element={<Example />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
