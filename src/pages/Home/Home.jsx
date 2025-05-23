@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Example from './Example';
+import Example from '../Example';
+import Header from '../../components/header/header';
 
 function Home(params) {
   return (
     <>
-      <h1>Home page</h1>
+      <Header></Header>
       <Link to="/example">Example</Link>
     </>
   );
