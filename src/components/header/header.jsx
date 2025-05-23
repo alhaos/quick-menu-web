@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './header.module.css';
-import logo from './logo100x100.png';
+import logo from '/logo100x100.png';
 
 function Header(props) {
   const id = props.id;
@@ -8,11 +8,8 @@ function Header(props) {
   return (
     <>
       <div className={styles.header}>
-        <div className={styles.box}>
-          <img className={styles.logo} src={logo} alt="no imega found" />
-          <h1>Меню {id}</h1>
-          <p>Добро пожаловать в сервис для создания QR Меню</p>
-        </div>
+        <img className={styles.logo} src={logo} alt="no imega found" />
+        <h1>Quick menu</h1>
       </div>
     </>
   );
