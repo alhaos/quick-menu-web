@@ -1,15 +1,32 @@
 .header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
   width: 100%;
   height: 3rem;
   color: lightgray;
   margin-bottom: 0.5rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  background-color: rgb(41, 94, 94);
+}
+
+.caption {
+  min-width: 1rem;
+  font-size: 2rem;
+  white-space: nowrap;
 }
 
 .logo {
-  height: 100%;
+  justify-self: start;
+  margin-left: 3rem;
+  max-height: 3rem;
+}
+
+.button {
+  width: 7rem;
+  height: 2rem;
+  background-color: #3527b1;
+  color: white;
+  justify-self: end;
+  margin-right: 1rem;
 }

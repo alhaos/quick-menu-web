@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './Client.module.css';
+// import styles from './Client.module.css';
 import CustomError from '../../components/CustomError/CustomError';
 import { useSearchParams } from 'react-router-dom';
 
-function ClientPage(props) {
+function ClientPage() {
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
 
