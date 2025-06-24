@@ -7,8 +7,8 @@ function Header({ id }) {
   return (
     <div className={styles.header}>
       <img className={styles.logo} src={logo} alt="no image found" />
-      <div className={styles.caption}> Quick menu {id}</div>
-      <button className={styles.button}>Log in {id}</button>
+      <div className={styles.caption}> QR меню {id}</div>
+      <button className={styles.button}>Войти</button>
     </div>
   );
 }

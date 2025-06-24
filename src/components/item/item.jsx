@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './item.module.css';
 import image from './tmp.jpg';
+import proptypes from 'prop-types';
 
-function Item({ caption, price }) {
+const Item = ({ caption, price }) => {
   return (
     <div className={styles.box}>
       <p className={styles.caption}>{caption}</p>
@@ -10,6 +11,11 @@ function Item({ caption, price }) {
       <p className={styles.price}>{price}</p>
     </div>
   );
+}
+
+Item.propTypes = {
+  caption: proptypes.string.isRequired,
+  price: proptypes.number.isRequired,
 }
 
 export default Item;

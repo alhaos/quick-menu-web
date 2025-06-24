@@ -2,12 +2,17 @@
   padding: 0;
   margin: 0;
 }
-body {
-  background-color: #07103c;
-  background: #292a2e;
-  color: white;
-}
 
-.nil {
-  background: linear-gradient(0.25turn, #07103c, #0c2734);
+:root {
+  /* цветовая палитка https://gradients.app/ru/palette/242*/
+  --color0: #d43e14;
+  --color1: #fcd48a;
+  --color2: #051f45;
+  --color3: #a45c5c;
+  --color4: #d0d0b4;
+  --color5: #314354;
+  --common-background-color: white;
+
+  background-color: var(--common-background-color);
+  color: var(--color2);
 }
