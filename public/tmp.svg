@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="300"
+     height="300"
+     class="icon"
+     version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+
+     <rect stroke="#f0f" x="10" y="10" width="280" height="280" fill="none"  stroke-width="4" rx="30"/>
+
+     <path stroke="#0ff" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" d="M 55 250q 50 0 50 -50v -20q -50 -0 -50 -50v -80h 130v 80q 0 50 -50 50v 20q 0 50 50 50m 20 -200v 50m 20 -50v 50m 20 -50v 60q 0 20 -20 20v 120"/>
+</svg>

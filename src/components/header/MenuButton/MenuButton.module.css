@@ -1,0 +1,37 @@
+.MenuButton {
+    height: 100%;
+    width: auto;
+    justify-self: start;
+}
+
+.SVG {
+    width: auto;
+    height: 100%;
+}
+
+.Path, .Rect {
+    stroke: black;
+}
+
+.SVG:hover .Path,
+.SVG:hover .Rect {
+    stroke: var(--color0);
+}
+
+.SVG:active .Path,
+.SVG:active .Rect {
+    stroke: var(--color1);
+}
+
+
+@media (prefers-color-scheme: light) {
+    .Path, .Rect {
+        stroke: black;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .Path, .Rect {
+        stroke: white;
+    }
+}

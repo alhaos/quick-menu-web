@@ -1,0 +1,13 @@
+.Caption {
+    height: 80%;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Caption h1 {
+    text-transform: uppercase;
+    white-space: nowrap;
+}

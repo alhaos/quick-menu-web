@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 :root {
@@ -11,8 +12,10 @@
   --color3: #a45c5c;
   --color4: #d0d0b4;
   --color5: #314354;
-  --common-background-color: white;
 
-  background-color: var(--common-background-color);
-  color: var(--color2);
+  font-family: sans-serif;
+  color-scheme: light dark ;
+
 }
+
+
