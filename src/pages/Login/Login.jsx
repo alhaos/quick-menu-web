@@ -10,9 +10,10 @@ export const Login = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
+    e.preventDefault(); // Prevent default behavior
+    setError(''); // reset error
 
+    // Check username password exists
     if (!username.trim() || !password.trim()) {
       setError('Заполните имя пользователя и пароль');
       return;
@@ -29,17 +30,24 @@ export const Login = () => {
       });
 
       if (!result.ok) {
-        setError('не верное имя пользователя или пароль');
-        return;
+        switch (result.status) {
+          case 401:
+            setError('Неверное имя пользоватлея или пароль');
+            break;
+          default: {
+            const data = await result.json();
+            throw new Error(data.error);
+          }
+        }
+      } else {
+        navigate('/menu-manager');
       }
-      navigate('/menu-manager');
     } catch (e) {
       setError(e.message);
     } finally {
       setIsLoading(false);
     }
   };
-
   return (
     <div className={styles.Login}>
       <h2>Вход</h2>

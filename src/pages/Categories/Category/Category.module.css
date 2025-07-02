@@ -1,0 +1,9 @@
+.Category {
+    max-width: 350px;
+    border-left: 4px solid ;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-left: .5rem;
+}

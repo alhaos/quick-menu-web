@@ -1,21 +1,32 @@
-import { isTokenValid } from '../../hooks/checkToken.jsx';
+import useAuth from '../../hooks/useAuth.jsx';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect } from 'react';
 
 export const ProtectedRoute = ({ children }) => {
   const navigate = useNavigate();
-  const [authSuccess, setAuthSuccess] = useState(false);
+  const { isAuthorized, isLoading, error } = useAuth();
 
-  isTokenValid().then((isValid) => {
-    if (isValid) {
-      setAuthSuccess(true);
-    } else {
-      navigate('/');
+  // console.log('is authorized in ProtectionRoute: ', isAuthorized);
+  // console.log('is loading in ProtectionRoute: ', isLoading);
+  // console.log('error in ProtectionRoute: ', error);
+
+  useEffect(() => {
+    if (!isLoading && !isAuthorized) {
+      navigate('/'); // Перенаправляем, если не авторизован
     }
-  });
+  }, [isAuthorized, isLoading, navigate]);
 
-  return authSuccess ? children : null;
+  if (isLoading) {
+    return null; // или <Spinner />, пока идёт проверка
+  }
+
+  if (error) {
+    console.error('Auth check error:', error);
+    return null; // или показать ошибку
+  }
+
+  return isAuthorized ? children : null;
 };
 
 ProtectedRoute.propTypes = { children: PropTypes.node };

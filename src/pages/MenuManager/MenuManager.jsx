@@ -8,6 +8,7 @@ export const MenuManager = () => {
     <div className={styles.MenuManager}>
       <Header />
       <Link to="/categories">Категории</Link>
+      <Link to="/items">Элементы</Link>
     </div>
   );
 };

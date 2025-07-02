@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import Home from './pages/Home/Home';
-import Example from './pages/Example';
+import { Home } from './pages/Home/Home';
 import ClientPage from './pages/Client/Client';
 import NotFound from './pages/NotFound';
 import UnderConstruction from './pages/UnderConstruction/UnderConstruction';
@@ -10,6 +9,7 @@ import { Login } from './pages/Login/Login.jsx';
 import { MenuManager } from './pages/MenuManager/MenuManager.jsx';
 import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute.jsx';
 import { Categories } from './pages/Categories/Categories.jsx';
+import Items from './pages/Items/Items.jsx';
 
 function App() {
   return (
@@ -20,7 +20,6 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="under-construction" element={<UnderConstruction />} />
-          <Route path="example" element={<Example />} />
           <Route path="client" element={<ClientPage />} />
           <Route
             path="menu-manager"
@@ -38,7 +37,13 @@ function App() {
               </ProtectedRoute>
             }
           />
-
+          <Route
+            path="items"
+            element={
+              <ProtectedRoute>
+                <Items />
+              </ProtectedRoute>
+            }></Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

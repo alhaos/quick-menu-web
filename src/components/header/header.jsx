@@ -1,24 +1,21 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import styles from './header.module.css';
-import { MenuButton } from './MenuButton/MenuButton.jsx';
-import { LogoButton } from './LogoButton/LogoButton.jsx';
-import { Caption } from './Caption/Caption.jsx';
-import { useNavigate } from 'react-router-dom';
-import { isTokenValid } from '../../hooks/checkToken.jsx';
+import useAuth from '../../hooks/useAuth.jsx';
+import MenuButton from './MenuButton/MenuButton.jsx';
+import Caption from './Caption/Caption.jsx';
+import LoginButton from './LoginButton/LoginButton.jsx';
+import LogoffButton from './LogoffButton/LogoffButton.jsx';
 
-function Header() {
+export const Header = () => {
+  const { isAuthorized } = useAuth();
+
   return (
     <div className={styles.header}>
       <MenuButton />
       <Caption />
-      <LogoButton />
+      {isAuthorized ? <LogoffButton /> : <LoginButton />}
     </div>
   );
-}
-
-Header.propTypes = {
-  id: PropTypes.string
 };
 
 export default Header;

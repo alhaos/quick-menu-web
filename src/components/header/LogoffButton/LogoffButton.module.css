@@ -1,0 +1,40 @@
+.LogoButton {
+    height: 100%;
+    width: auto;
+    justify-self: end;
+}
+
+.SVG {
+    height: 100%;
+    width: auto;
+}
+
+.Path,
+.Rect {
+    stroke: black;
+}
+
+.SVG:hover .Path,
+.SVG:hover .Rect {
+    stroke: var(--color0);
+}
+
+.SVG:active .Path,
+.SVG:active .Rect {
+    stroke: var(--color1);
+}
+
+
+@media (prefers-color-scheme: light) {
+    .Path,
+    .Rect {
+        stroke: black;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .Path,
+    .Rect {
+        stroke: white;
+    }
+}

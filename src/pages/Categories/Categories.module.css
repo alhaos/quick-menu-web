@@ -1,3 +1,29 @@
-.Categories{
-    border: 1px solid red;
+.contentBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
+
+.addButton {
+    width: 6rem;
+    color: white;
+    height: 2rem;
+    border-radius: .3rem;
+    background-color: var(--color3);
+    transition: background-color 0.2s;
+    /* box-shadow: 0 0 20px var(--color3);*/
+}
+
+.addButton:hover {
+    background-color: var(--color0);
+}
+
+.addButton:active {
+    background-color: var(--color1);
+    transform: scale(0.95);
+
+}
+
+
