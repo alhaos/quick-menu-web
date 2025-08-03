@@ -1,0 +1,41 @@
+.SquareButton {
+    --background-color: green;
+    --hover-color: darkgreen;
+    --line-color: white;
+    display: inline-block;
+    min-width: 2rem;
+    min-height: 2rem;
+    border-radius: 0.5rem;
+}
+
+.SquareButton button {
+    width: 100%;
+    height: 100%;
+    border: thin solid var(--line-color);
+    background-color: transparent;
+    border-radius: 0.5rem;
+    transition: background-color .5s ease;
+}
+
+@media (hover: hover) {
+    .SquareButton:hover button {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        background-color: var(--hover-color);
+        transition: background-color .5s ease;
+    }
+}
+
+.SquareButton button:active {
+    background-color: var(--background-color);
+    transition: background-color .2s ease;
+}
+
+path {
+    stroke: var(--line-color);
+}
+
+.Frame {
+    stroke: var(--line-color);
+}
