@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="300" height="300" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <rect stroke="#f0f" x="10" y="10" width="280" height="280" fill="none"  stroke-width="4" rx="30"/>
+    <path stroke="#0ff"
+          fill="none"
+          stroke-width="10"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M70,100l15,130q0,15 15,15l100,0q15,0 15,-15l10,-130m-167.5,0l180,0l0,-15q0,-15 -15,-15l-150,0q-15,0 -15,15l0,15m65, -30q0,-20 20,-20l15,0q20,0 20,20m50,0M120,140l0,70m30,0l0,-70m30,0l0,70"/>
+</svg>

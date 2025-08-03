@@ -3,7 +3,7 @@ import Header from '../../components/header/header.jsx';
 import styles from './MenuManager.module.css';
 import { Link } from 'react-router-dom';
 
-export const MenuManager = () => {
+export default function MenuManager() {
   return (
     <div className={styles.MenuManager}>
       <Header />
@@ -11,4 +11,4 @@ export const MenuManager = () => {
       <Link to="/items">Элементы</Link>
     </div>
   );
-};
+}

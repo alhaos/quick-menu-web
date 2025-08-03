@@ -1,9 +1,61 @@
 .Category {
+    height: 6rem;
     max-width: 350px;
     border-left: 4px solid ;
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    justify-content: space-between;
     gap: 1rem;
     padding-left: .5rem;
+}
+
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.buttonGroup {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    height: 2rem;
+    width: 2rem;
+    gap: .2rem;
+}
+
+.removeButton{
+    cursor: pointer;
+    height: 100%;
+    width: auto;
+}
+
+rect, path{
+    fill: none;
+    stroke: var(--color2);
+}
+
+.buttonGroup:hover path,
+.buttonGroup:hover rect {
+    stroke: var(--color0);
+}
+
+.buttonGroup:active path,
+.buttonGroup:active rect {
+    stroke: var(--color1);
+}
+
+
+@media (prefers-color-scheme: light) {
+    path,
+    rect {
+        stroke: black;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    path,
+    rect {
+        stroke: white;
+    }
 }

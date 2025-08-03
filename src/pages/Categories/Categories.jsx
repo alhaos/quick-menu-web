@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import styles from './Categories.module.css';
 import Header from '../../components/header/header.jsx';
 import Category from './Category/Category.jsx';
+import { Link } from 'react-router-dom';
+import SquareButton from '../../components/SquareButton/SquareButton.jsx';
 
-export const Categories = () => {
+export default function Categories() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -32,14 +34,27 @@ export const Categories = () => {
     <div>
       <Header />
       <div className={styles.contentBox}>
-        <div>Категории {categories.length}:</div>
+        <div>Категории {categories ? categories.length : ''}:</div>
         {error ? <div className={styles.ErrorMessage}>{error}</div> : ''}
-        {loading ? <div className={styles.LoadingMessage}>loading...</div> : ''}
-        {categories.map((category) => (
-          <Category key={category.id} name={category.name} description={category.description} />
-        ))}
-        <button className={styles.addButton}>добавить</button>
+        {loading ? (
+          <div className={styles.LoadingMessage}>loading...</div>
+        ) : (
+          categories &&
+          categories.map((category) => (
+            <div key={category.id} className={styles.Category}>
+              <Category category={category} setCategories={setCategories} setError={setError} />
+              <SquareButton
+                callBack={() => {
+                  console.log('edit category clicked');
+                }}
+              />
+            </div>
+          ))
+        )}
+        <Link to={'/add-category'}>
+          <button className={styles.addButton}>добавить</button>
+        </Link>
       </div>
     </div>
   );
-};
+}

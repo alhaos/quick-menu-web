@@ -1,0 +1,19 @@
+.CustomButton{
+    height: 3rem;
+    width: 3rem;
+}
+
+.CustomButton button{
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+}
+
+.CustomButton:hover :is(rect, path){
+    stroke: var(--color0);
+}
+
+.CustomButton:active :is(rect, path){
+    stroke: var(--color1);
+}

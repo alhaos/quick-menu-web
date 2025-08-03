@@ -1,32 +1,34 @@
 import { useEffect, useState } from 'react';
-
-const useAuth = () => {
+export default function useAuth() {
   const [isAuthorized, setIsAuthorized] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    const checkAuth = async () => {
+    let isMounted = true;
+
+    async function checkAuth() {
       try {
         const response = await fetch('/backend/api/auth/check', {
           credentials: 'include'
         });
-        setIsAuthorized(response.ok);
-      } catch (err) {
-        setError(err instanceof Error ? err : new Error('Unknown error'));
-        setIsAuthorized(false);
-      } finally {
-        setIsLoading(false);
+
+        if (isMounted) {
+          setIsAuthorized(response.ok);
+        }
+      } catch (error) {
+        if (isMounted) {
+          setError(error instanceof Error ? error : new Error('Something went wrong'));
+          setIsAuthorized(false);
+        }
       }
-    };
+    }
+
     checkAuth();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
-  // console.log('is authorized in useAuth: ', isAuthorized);
-  // console.log('is loading in useAuth: ', isLoading);
-  // console.log('error in useAuth: ', error);
-
-  return { isAuthorized, isLoading, error };
-};
-
-export default useAuth;
+  return { isAuthorized, error };
+}

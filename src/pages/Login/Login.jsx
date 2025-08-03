@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import styles from './Login.module.css';
 import { useNavigate } from 'react-router-dom';
+import login from '../../functions/login.jsx';
 
-export const Login = () => {
+function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -13,40 +14,19 @@ export const Login = () => {
     e.preventDefault(); // Prevent default behavior
     setError(''); // reset error
 
-    // Check username password exists
     if (!username.trim() || !password.trim()) {
       setError('Заполните имя пользователя и пароль');
       return;
     }
 
     setIsLoading(true);
-    try {
-      const result = await fetch('/backend/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name: username, password })
-      });
-
-      if (!result.ok) {
-        switch (result.status) {
-          case 401:
-            setError('Неверное имя пользоватлея или пароль');
-            break;
-          default: {
-            const data = await result.json();
-            throw new Error(data.error);
-          }
-        }
-      } else {
-        navigate('/menu-manager');
-      }
-    } catch (e) {
-      setError(e.message);
-    } finally {
-      setIsLoading(false);
+    const [success, error] = await login(username, password);
+    setIsLoading(false);
+    if (!success) {
+      setError(error);
+      return;
     }
+    navigate('/menu-manager');
   };
   return (
     <div className={styles.Login}>
@@ -81,4 +61,6 @@ export const Login = () => {
       </form>
     </div>
   );
-};
+}
+
+export default Login;
