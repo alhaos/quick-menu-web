@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './Login.module.css';
-import { useNavigate } from 'react-router-dom';
-import login from '../../functions/login.jsx';
+import { Navigate } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthContext.jsx';
+import login from '../../Functions/login.jsx';
+import proptypes from 'prop-types';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const navigate = useNavigate();
+  const authCtx = useContext(AuthContext);
 
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault(); // Prevent default behavior
     setError(''); // reset error
 
@@ -20,20 +22,24 @@ function Login() {
     }
 
     setIsLoading(true);
+
     const [success, error] = await login(username, password);
+
     setIsLoading(false);
+
     if (!success) {
       setError(error);
       return;
     }
-    navigate('/menu-manager');
-  };
+
+    authCtx.login();
+  }
+
   return (
     <div className={styles.Login}>
+      {authCtx.isAuth && <Navigate to={'menu-manager'} />}
       <h2>Вход</h2>
-
       {error && <div className={styles.errorMessage}>{error}</div>}
-
       <form onSubmit={handleSubmit}>
         <div className={styles.formGroup}>
           <input
@@ -64,3 +70,7 @@ function Login() {
 }
 
 export default Login;
+
+Login.proptypes = {
+  setIsAuth: proptypes.func.isRequired
+};

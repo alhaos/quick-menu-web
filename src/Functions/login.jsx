@@ -7,7 +7,7 @@ export default async function Login(username, password) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name: username, password })
+      body: JSON.stringify({ name: username, password: password })
     });
 
     if (!response.ok) {

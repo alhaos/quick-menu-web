@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './AddCategory.module.css';
-import Header from '../../components/header/header.jsx';
+import Header from '../../Components/header/header.jsx';
 
 const AddCategory = () => {
   const [name, setName] = React.useState('');

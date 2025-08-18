@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './Category.module.css';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import SquareButton from '../../../components/SquareButton/SquareButton.jsx';
+import SquareButton from '../../../Components/SquareButton/SquareButton.jsx';
 
 const Category = ({ category, setCategories, setError }) => {
   const navigate = useNavigate();

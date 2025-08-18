@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Categories.module.css';
-import Header from '../../components/header/header.jsx';
+import Header from '../../Components/header/header.jsx';
 import Category from './Category/Category.jsx';
 import { Link } from 'react-router-dom';
-import SquareButton from '../../components/SquareButton/SquareButton.jsx';
+import SquareButton from '../../Components/SquareButton/SquareButton.jsx';
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);

@@ -6,7 +6,7 @@ export default function useAuth() {
   useEffect(() => {
     let isMounted = true;
 
-    async function checkAuth() {
+    async function run() {
       try {
         const response = await fetch('/backend/api/auth/check', {
           credentials: 'include'
@@ -23,7 +23,7 @@ export default function useAuth() {
       }
     }
 
-    checkAuth();
+    run();
 
     return () => {
       isMounted = false;

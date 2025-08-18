@@ -1,6 +1,6 @@
 import React from 'react';
 // import styles from './Client.module.css';
-import CustomError from '../../components/CustomError/CustomError';
+import CustomError from '../../Components/CustomError/CustomError';
 import { useSearchParams } from 'react-router-dom';
 
 function ClientPage() {

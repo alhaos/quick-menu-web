@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Items.module.css';
-import Header from '../../components/header/header.jsx';
+import Header from '../../Components/header/header.jsx';
 
 const Items = () => {
   return (
