@@ -11,31 +11,30 @@ export default function Categories() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const getCategories = async () => {
-      try {
-        const resp = await fetch('/backend/api/private/categories', {
-          credentials: 'include'
-        });
-        if (!resp.ok) {
-          throw new Error('Ошиба извлечения категорий');
+    fetch('/backend/api/private/categories', {
+      credentials: 'include'
+    })
+      .then((response) => {
+        console.log(response.ok);
+        if (response.ok) {
+          return response.json();
         }
-        const data = await resp.json();
-        setCategories(data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    getCategories();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    setLoading(false);
   }, []);
 
   return (
     <div>
       <Header />
       <div className={styles.contentBox}>
+        {error && <div className={styles.ErrorMessage}>{error}</div>}
         <div>Категории {categories ? categories.length : ''}:</div>
-        {error ? <div className={styles.ErrorMessage}>{error}</div> : ''}
         {loading ? (
           <div className={styles.LoadingMessage}>loading...</div>
         ) : (

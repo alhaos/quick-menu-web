@@ -1,0 +1,12 @@
+.Items {
+    display: flex;
+    flex-direction: column;
+    border: 1px dotted red;
+
+}
+
+.List {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem;
+}

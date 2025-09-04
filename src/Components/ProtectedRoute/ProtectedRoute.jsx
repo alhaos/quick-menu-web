@@ -1,29 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthContext.jsx';
 
 export default function ProtectedRoute() {
+  const ctx = useContext(AuthContext);
   const [isAuth, setIsAuth] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
-    async function checkAuth() {
-      try {
-        const response = await fetch('/backend/api/auth/check');
-        setIsAuth(response.ok);
-      } catch (error) {
-        console.error('Auth check failed:', error);
-        setIsAuth(false);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    checkAuth().then();
-
-    return () => {};
+    fetch('/backend/api/auth/check')
+      .then((response) => {
+        if (response.ok) {
+          setIsAuth(true);
+        } else {
+          ctx.logoff();
+        }
+      })
+      .catch(() => {
+        ctx.logoff();
+      })
+      .finally(() => {
+        setIsChecking(false);
+      });
   }, []);
 
-  if (isLoading) {
+  if (isChecking) {
     return <div>Loading...</div>; // или спиннер/скелетон
   }
 

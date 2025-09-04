@@ -1,0 +1,57 @@
+.Item {
+    border: medium solid #444;
+    height: 15rem;
+    width: 24rem;
+    border-radius: 1rem;
+    display: grid;
+    gap: .5rem;
+    grid-template-columns: 3fr 5fr;
+    padding: .5rem;
+}
+
+.Item:hover {
+    border-color: #999;
+}
+
+.imageFilename {
+    align-self: center;
+    order: 1;
+    grid-row: span 3;
+    border-radius: .5rem;
+    height: 15rem;
+    width: 14rem;
+}
+
+.name {
+    order: 2;
+    text-align: left;
+}
+
+.description {
+    order: 3;
+    text-align: left;
+    font-size: x-small;
+}
+
+.price {
+    align-self: self-end;
+    justify-self: end;
+    order: 4;
+    text-align: left;
+    padding-right: .5rem;
+}
+
+@media (max-width: 500px) {
+    .Item {
+        display: flex;
+        width: auto;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .description {
+        font-size: small;
+    }
+
+}

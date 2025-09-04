@@ -23,7 +23,8 @@
 .addButton:active {
     background-color: var(--color1);
     transform: scale(0.95);
-
 }
 
-
+.ErrorMessage {
+    color: red;
+}

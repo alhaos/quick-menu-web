@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import styles from './Login.module.css';
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthContext.jsx';
-import login from '../../Functions/login.jsx';
 import proptypes from 'prop-types';
 
 function Login() {
@@ -23,21 +22,31 @@ function Login() {
 
     setIsLoading(true);
 
-    const [success, error] = await login(username, password);
-
-    setIsLoading(false);
-
-    if (!success) {
-      setError(error);
-      return;
-    }
-
-    authCtx.login();
+    fetch('/backend/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name: username, password: password })
+    })
+      .then((response) => {
+        if (response.ok) {
+          authCtx.login();
+        } else {
+          setError(response.statusText);
+        }
+      })
+      .catch((e) => {
+        setError(e.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }
 
   return (
     <div className={styles.Login}>
-      {authCtx.isAuth && <Navigate to={'menu-manager'} />}
+      {authCtx.isAuth && <Navigate to={'/menu-manager'} />}
       <h2>Вход</h2>
       {error && <div className={styles.errorMessage}>{error}</div>}
       <form onSubmit={handleSubmit}>

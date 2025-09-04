@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './LogoffButton.module.css';
-import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthContext.jsx';
 
 export const LogoffButton = () => {
-  const navigate = useNavigate();
+  const ctx = useContext(AuthContext);
 
   const onClickHandlerLogoff = async () => {
-    await fetch('/backend/api/auth/logoff');
-    navigate('/');
+    fetch('/backend/api/auth/logoff').then((response) => {
+      if (response.ok) {
+        ctx.logoff();
+      }
+    });
   };
 
   return (

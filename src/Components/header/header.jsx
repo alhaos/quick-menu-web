@@ -1,21 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './header.module.css';
 import MenuButton from './MenuButton/MenuButton.jsx';
 import Caption from './Caption/Caption.jsx';
-import LogoffButton from './LogoffButton/LogoffButton.jsx';
-import PropTypes from 'prop-types';
+import { AuthContext } from '../../Contexts/AuthContext.jsx';
 import { Link } from 'react-router-dom';
+import LoginButton from './LoginButton/LoginButton.jsx';
+import LogoffButton from './LogoffButton/LogoffButton.jsx';
 
-export default function Header({ authorized }) {
+export default function Header() {
+  const ctx = useContext(AuthContext);
   return (
     <div className={styles.header}>
       <MenuButton />
       <Caption />
-      {authorized ? <LogoffButton /> : <Link to="/login">Login</Link>}
+      {ctx.isAuth ? <LogoffButton /> : <LoginButton />}
     </div>
   );
 }
-
-Header.propTypes = {
-  authorized: PropTypes.bool.isRequired
-};
