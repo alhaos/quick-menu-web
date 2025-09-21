@@ -1,0 +1,10 @@
+.Item {
+    min-width: 70px;
+    height: 25px;
+    border: solid thin white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
