@@ -33,23 +33,25 @@ function App() {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuth, login, logoff }}>
-      <Routes>
-        <Route index element={<CustomerFrame />} />
-        <Route path="home" element={<Home />} />
-        <Route path="login" element={<Login setIsAuth={setIsAuth} />} />
-        <Route path="client" element={<ClientPage />} />
-        <Route path={'logoff'} element={<Logoff />} />
-        <Route element={<ProtectedRoute />}>
-          <Route path="menu-manager" element={<MenuManager />} />
-          <Route path="categories" element={<Categories />} />
-          <Route path="add-category" element={<AddCategory />} />
-          <Route path="edit-category/:id" element={<CategoryEdit />} />
-          <Route path="items" element={<Items />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </AuthContext.Provider>
+    <div className={'App'}>
+      <AuthContext.Provider value={{ isAuth, login, logoff }}>
+        <Routes>
+          <Route index element={<CustomerFrame />} />
+          <Route path="home" element={<Home />} />
+          <Route path="login" element={<Login setIsAuth={setIsAuth} />} />
+          <Route path="client" element={<ClientPage />} />
+          <Route path={'logoff'} element={<Logoff />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="menu-manager" element={<MenuManager />} />
+            <Route path="categories" element={<Categories />} />
+            <Route path="add-category" element={<AddCategory />} />
+            <Route path="edit-category/:id" element={<CategoryEdit />} />
+            <Route path="items" element={<Items />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AuthContext.Provider>
+    </div>
   );
 }
 
