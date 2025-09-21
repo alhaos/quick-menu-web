@@ -1,7 +1,10 @@
 .Menu {
+    background-color: #051f45;
     height: 60px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 10px;
+    position: sticky;
+    top: 100px;
 }

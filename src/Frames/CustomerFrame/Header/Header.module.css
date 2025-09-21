@@ -1,7 +1,10 @@
 .Header {
+    background-color: #051f45;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px;
     font-size: 30px;
+    position: sticky;
+    top: 0;
 }

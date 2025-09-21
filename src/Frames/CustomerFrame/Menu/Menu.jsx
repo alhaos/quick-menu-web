@@ -8,6 +8,8 @@ export default function Menu() {
       <Item name={'Кофе'} />
       <Item name={'Чай'} />
       <Item name={'Напитки'} />
+      <Item name={'Десерты'} />
+      <Item name={'На вынос'} />
     </div>
   );
 }

@@ -9,6 +9,21 @@ export default function CustomerFrame() {
       <Header name={'Бодрая сова'}></Header>
       <Menu></Menu>
       <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
+      <Item imageFilename={'C:/repo/quick-menu-web/public/latte.webp'} />
     </div>
   );
 }
