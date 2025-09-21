@@ -5,17 +5,13 @@
 }
 
 :root {
-  /* цветовая палитка https://gradients.app/ru/palette/242*/
   --color0: #d73c13;
   --color1: #fcd48a;
-  --color2: #051f45;
+  --color2: #1D1F3C;
   --color3: #a62e0e;
   --color4: #d0d0b4;
   --color5: #314354;
 
-  font-family: sans-serif;
+  font-family: Lora, serif;
   color-scheme: light dark ;
-
 }
-
-

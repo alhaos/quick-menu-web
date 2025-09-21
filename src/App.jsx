@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute.jsx';
 import { AuthContext } from './Contexts/AuthContext.jsx';
 
-import Home from './Routes/Home/Home';
-import ClientPage from './Routes/Client/Client';
-import Login from './Routes/Login/Login.jsx';
-import NotFound from './Routes/NotFound';
-import MenuManager from './Routes/MenuManager/MenuManager.jsx';
-import Categories from './Routes/Categories/Categories.jsx';
-import { Items } from './Routes/Items/Items.jsx';
-import AddCategory from './Routes/AddCategory/AddCategory.jsx';
-import CategoryEdit from './Routes/CategoryEdit/CategoryEdit.jsx';
+import Home from './Frames/Home/Home';
+import ClientPage from './Frames/Client/Client';
+import Login from './Frames/Login/Login.jsx';
+import NotFound from './Frames/NotFound';
+import MenuManager from './Frames/MenuManager/MenuManager.jsx';
+import Categories from './Frames/Categories/Categories.jsx';
+import { Items } from './Frames/Items/Items.jsx';
+import AddCategory from './Frames/AddCategory/AddCategory.jsx';
+import CategoryEdit from './Frames/CategoryEdit/CategoryEdit.jsx';
 
 import { useNavigate } from 'react-router-dom';
 
 import './App.css';
-import Logoff from './Routes/Logoff/Logoff.jsx';
+import Logoff from './Frames/Logoff/Logoff.jsx';
+import CustomerFrame from './Frames/CustomerFrame/CustomerFrame.jsx';
 
 function App() {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ function App() {
   return (
     <AuthContext.Provider value={{ isAuth, login, logoff }}>
       <Routes>
-        <Route index element={<Home />} />
+        <Route index element={<CustomerFrame />} />
         <Route path="home" element={<Home />} />
         <Route path="login" element={<Login setIsAuth={setIsAuth} />} />
         <Route path="client" element={<ClientPage />} />
