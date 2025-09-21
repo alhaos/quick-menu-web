@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Item.module.css';
-import latteImage from 'C:/repo/quick-menu-web/public/latte.webp';
+import latteImage from '/latte.webp';
 import PropTypes from 'prop-types';
 
 export default function Item({ imageFilename }) {
